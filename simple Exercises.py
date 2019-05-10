@@ -165,8 +165,10 @@ def game():
 
         if matches > 2 and Cpontuacao > Jpontuacao:
             print("O computador ganhou a melhor de 3!!!")
+            break
         elif matches > 2 and Jpontuacao > Cpontuacao:
             print("Você ganhou a melhor de 3!!!")
+            break
         Wait()
 
 # Menu Para os executaveis
