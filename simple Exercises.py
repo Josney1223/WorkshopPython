@@ -26,8 +26,7 @@ def soldiers():
 
 # Exercício eleição
 def election():
-    expectedPeopleNumber = int(
-        input("Digite o número de eleitoes esperados: "))
+    expectedPeopleNumber = int(input("Digite o número de eleitoes esperados: "))
     colectedPeopleNumber = int(input("Digite o número de votos coletados: "))
     peopleVoteWhite = int(input("Digite o número de votos em branco: "))
     peopleVoteNull = int(input("Digite o número de votos em nulo: "))
@@ -43,9 +42,9 @@ def media():
     A1 = int(input('Digite a nota da primeira atividade: '))
     P2 = int(input('Digite a nota da segunda prova: '))
     A2 = int(input('Digite a nota da segunda atividade: '))
-    N1 = (P1*3 + A1) / 2
-    N2 = (P2*3 + A2) / 2
-    NF = (N1 + N2)/2
+    N1 = (P1 + A1*3) / 4
+    N2 = (P2 + A2*3) / 4
+    NF = (N1 + N2) / 2
     print("A média final dessa pessoa é:", NF)
 
 # Conversor de data
