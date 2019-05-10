@@ -1,7 +1,6 @@
 import os
 import random
 
-
 def Wait():
     k = input("Press enter to continue")
 
@@ -11,18 +10,17 @@ def soldiers():
           " de demonstrar um posicionamento de um batalhao.", sep='\n')
     x = int(input("Digite um número de soldados: "))
     filas = 0
-    n = 1
+    n = 0
 
     while x > 0:
+        n += 1
         x -= n
         filas += 1
-        n += 1
 
     print("O número de fileiras formadas foi", filas)
 
     if x < 0:
-        x -= -(n-1)
-        print("e restaram", x, "soldados na última fileira.")
+        print("e restaram", x + n, "soldados na última fileira.")
 
 # Exercício eleição
 def election():
