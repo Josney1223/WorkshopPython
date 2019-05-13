@@ -20,52 +20,46 @@ def Triangulo():
     ladoA = float(input("Digite o valor do primeiro lado: "))
     ladoB = float(input("Digite o valor do segundo lado: "))
     ladoC = float(input("Digite o valor do terceiro lado: "))
-
-    class Triangulo:
-        def __init__(self, A, B, C):
-            self.A = A
-            self.B = B
-            self.C = C
-            self.y = 0
             
-        def verificarSoma(self):
-            if (self.A > self.B + self.C):
-                x = ("False")
-                self.y = 1
-            elif (self.B > self.A + self.C):
-                x = ("False")
-                self.y = 1
-            elif (self.C > self.A + self.B):
-                x = ("False")
-                self.y = 1
-            else:
-                x = ("True")
-            print("É um triângulo: " + x)
+    def verificarSoma(A, B, C):
+        y = 0
+        if (A > B + C):
+            x = ("False")
+            y = 1
+        elif (B > A + C):
+            x = ("False")
+            y = 1
+        elif (C > A + B):
+            x = ("False")
+            y = 1
+        else:
+            x = ("True")
+        print("É um triângulo: " + x)
+        return y
                 
-        def equilatero(self):
-            if (self.A == self.B and self.B == self.C):
-                print("É equilátero? True")
-            else:
-                print("É equilátero? False")
+    def equilatero(A, B, C):
+        if (A == B and B == C):
+            print("É equilátero? True")
+        else:
+            print("É equilátero? False")
                 
-        def isoceles(self):
-            if (self.A == self.B or self.B == self.C):
-                print("É isóceles? True")
-            else:
-                print("É isóceles? False")
+    def isoceles(A, B, C):
+        if (A == B or B == C):
+            print("É isóceles? True")
+        else:
+            print("É isóceles? False")
                 
-        def escaleno(self):
-            if (self.A != self.B and self.B != self.C):
-                print("É escaleno? True")
-            else:
-                print("É escaleno? False")
+    def escaleno(A, B, C):
+        if (A != B and B != C):
+            print("É escaleno? True")
+        else:
+            print("É escaleno? False")
 
-    tri = Triangulo(ladoA,ladoB,ladoC)
-    tri.verificarSoma()
-    if (tri.y != 1):
-        tri.equilatero()
-        tri.isoceles()
-        tri.escaleno()
+    tri = verificarSoma(ladoA, ladoB, ladoC)
+    if (tri != 1):
+        equilatero(ladoA, ladoB, ladoC)
+        isoceles(ladoA, ladoB, ladoC)
+        escaleno(ladoA, ladoB, ladoC)
 
 # Exercício eleição
 def Election():

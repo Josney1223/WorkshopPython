@@ -125,6 +125,7 @@ def Game():
     else: 
         print("Você perdeu!!")
         Wait()
+
 Game()
     
     
