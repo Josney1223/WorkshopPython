@@ -9,9 +9,9 @@ def Wait():
     k = input("Pressione enter para continuar")
 
 def Menu():
-    print("Menu")
+    print("{:^21}".format('Menu'))
     for i in range(len(item)):
-        print('{:^15}'.format(item[i].capitalize()), end = '')
+        print('{:<15}'.format(item[i].capitalize()), end = '')
         print("R${:^2.2f}".format(itemPreco[i]))
 
 def Preco(nome):
@@ -31,9 +31,12 @@ def PessoaFila():
         else:
             itemDesejado.append(pedido)
         pessoa.append(input("Qual o seu nome? "))
-        x = input("Existem mais pessoas na fila? <sim/nao> ").lower().strip()
-        if x =="nao":
-            ListaFinal()
+        while True:
+            x = input("Existem mais pessoas na fila? <sim/nao> ").lower().strip()
+            if x == "sim":
+                break
+            if x =="nao":
+                ListaFinal()
         
 def ListaFinal():
     os.system('cls')
@@ -41,13 +44,13 @@ def ListaFinal():
     valorCaixa2 = 0 
     half = len(pessoa)//2
     
-    for i in range(half):
+    for i in range(half,  len(pessoa)):
         print(pessoa[i], itemDesejado[i], "R$", Preco(itemDesejado[i]))
         valorCaixa1 += Preco(itemDesejado[i])
     print("O 1° caixa está com:", valorCaixa1)
     print()
 
-    for i in range(half, len(pessoa)):
+    for i in range(half):
         print(pessoa[i], itemDesejado[i], "R$", Preco(itemDesejado[i]))
         valorCaixa2 += Preco(itemDesejado[i])
     print()
