@@ -161,4 +161,15 @@ def Clock(hora, minutos, radius):
     turtle.penup()
     turtle.goto(xStart, yStart)
 
-EdgeStar()
+# Cinema
+def MovieTheater():
+    room = []
+    for i in range(19):
+        room.append([i])
+        for j in range(12):
+            room[i].append([j])
+            
+    for x in room:
+        print(x)
+
+MovieTheater()

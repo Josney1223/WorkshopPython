@@ -55,7 +55,8 @@ def Star():
 
 # Estrela Pontuda
 def EdgeStar():
-    for i in range(0, 11):
+    turtle.speed(1)
+    for i in range(11):
         xFrom = 0
         yFrom = (10-i) * 20
         xTo = i * 20
@@ -65,11 +66,40 @@ def EdgeStar():
         turtle.pendown()
         turtle.goto(xTo, yTo)
 
+    for i in range(11):
+        xFrom = (10-i) * 20
+        yFrom = 0
+        xTo = 0
+        yTo = - (i * 20)
+        turtle.penup()
+        turtle.goto(xFrom, yFrom)
+        turtle.pendown()
+        turtle.goto(xTo,yTo)
+
+    for i in range(11):
+        xFrom = 0
+        yFrom = - (10-i) * 20
+        xTo = - (i * 20)
+        yTo = 0
+        turtle.penup()
+        turtle.goto(xFrom, yFrom)
+        turtle.pendown()
+        turtle.goto(xTo,yTo)
+
+    for i in range(11):
+        xFrom = - (10-i) * 20
+        yFrom = 0
+        xTo = 0
+        yTo = (i * 20)
+        turtle.penup()
+        turtle.goto(xFrom, yFrom)
+        turtle.pendown()
+        turtle.goto(xTo,yTo)
+
 # Batimento Cardíaco
-def HeartBeat():
+def HeartBeat(lenght):
     xStart = 0
     yStart = 0
-    lenght = 200
     yMaxUp = lenght/4
     yMaxDown = -lenght/4
 
