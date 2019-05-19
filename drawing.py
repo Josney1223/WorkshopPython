@@ -166,13 +166,24 @@ def Clock(hora, minutos, radius):
 def MovieTheater(lenght):
     # Desenhar Cadeira
     def DrawChair():
+        turtle.color("green")
+        turtle.begin_fill()
         for i in range(4):
             turtle.pendown()
             turtle.forward(lenght/20)
             turtle.left(90)
+        turtle.end_fill()
 
     # Calcular Cadeiras
     #window.screensize(lenght+(lenght/12), lenght+(lenght/12))
+
+    # Desenhar Plano
+    turtle.goto(0, 100)
+    turtle.goto(0,0)
+    turtle.goto(100, 0)
+    turtle.goto(0,0)
+
+    # Criar Array Cadeiras
     room = []
     for i in range(12):
         room.append([i])
@@ -184,13 +195,12 @@ def MovieTheater(lenght):
     for i in range(12):
         turtle.speed(100)
         turtle.penup()
-        turtle.goto(0, i*lenght/12)
+        turtle.goto(- lenght, i*lenght/12)
         turtle.pendown()
         for j in range(19):
             turtle.penup()
             turtle.forward(lenght/19+10)
             turtle.pendown()
             DrawChair()
-            
 
-MovieTheater(1000)
+MovieTheater(200)
