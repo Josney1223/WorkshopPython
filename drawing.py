@@ -1,6 +1,7 @@
 import turtle
 import time
 
+window = turtle.Screen()
 turtle = turtle.Turtle()
 turtle.speed(1)
 turtle.color("red")
@@ -162,14 +163,34 @@ def Clock(hora, minutos, radius):
     turtle.goto(xStart, yStart)
 
 # Cinema
-def MovieTheater():
-    room = []
-    for i in range(19):
-        room.append([i])
-        for j in range(12):
-            room[i].append([j])
-            
-    for x in room:
-        print(x)
+def MovieTheater(lenght):
+    # Desenhar Cadeira
+    def DrawChair():
+        for i in range(4):
+            turtle.pendown()
+            turtle.forward(lenght/20)
+            turtle.left(90)
 
-MovieTheater()
+    # Calcular Cadeiras
+    #window.screensize(lenght+(lenght/12), lenght+(lenght/12))
+    room = []
+    for i in range(12):
+        room.append([i])
+        window.update()
+        for j in range(19):
+            room[i].append([lenght*j/19])
+    
+    # Desenhar as cadeiras
+    for i in range(12):
+        turtle.speed(100)
+        turtle.penup()
+        turtle.goto(0, i*lenght/12)
+        turtle.pendown()
+        for j in range(19):
+            turtle.penup()
+            turtle.forward(lenght/19+10)
+            turtle.pendown()
+            DrawChair()
+            
+
+MovieTheater(1000)
