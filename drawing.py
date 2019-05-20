@@ -1,6 +1,7 @@
-import turtle 
+import turtle
 import time
 
+player = 0
 pen = turtle.Turtle()
 pen.speed(1)
 pen.color("red")
@@ -74,7 +75,7 @@ def EdgeStar():
         pen.penup()
         pen.goto(xFrom, yFrom)
         pen.pendown()
-        pen.goto(xTo,yTo)
+        pen.goto(xTo, yTo)
 
     for i in range(11):
         xFrom = 0
@@ -84,7 +85,7 @@ def EdgeStar():
         pen.penup()
         pen.goto(xFrom, yFrom)
         pen.pendown()
-        pen.goto(xTo,yTo)
+        pen.goto(xTo, yTo)
 
     for i in range(11):
         xFrom = - (10-i) * 20
@@ -94,7 +95,7 @@ def EdgeStar():
         pen.penup()
         pen.goto(xFrom, yFrom)
         pen.pendown()
-        pen.goto(xTo,yTo)
+        pen.goto(xTo, yTo)
 
 # Batimento Cardíaco
 def HeartBeat(lenght):
@@ -126,7 +127,7 @@ def Clock(hora, minutos, radius):
     xStart = 0
     yStart = 0
     pen.penup()
-    
+
     # Circulo
     pen.right(90)
     pen.forward(radius + radius/10)
@@ -145,7 +146,7 @@ def Clock(hora, minutos, radius):
         pen.penup()
         pen.goto(xStart, yStart)
         pen.left(30)
-    
+
     # Desenhar as horas
     pen.left(90)
     pen.right(30*hora)
@@ -173,14 +174,13 @@ def MovieTheater(lenght):
             pen.left(90)
         pen.end_fill()
 
-
     # Criar Array Cadeiras
     room = []
     for i in range(12):
         room.append([i])
         for j in range(19):
             room[i].append([lenght*j/19])
-    
+
     # Desenhar as cadeiras
     for i in range(12):
         pen.speed(100)
@@ -195,26 +195,88 @@ def MovieTheater(lenght):
 
 # Jogo da Velha
 def CrossGame():
-
-    def BtnClick(x, y):
-        print(x,y)
-
-    turtle.bgcolor = ('black')
-    turtle._Screen.screensize(600,600)
-    lenght = 600
-
-    # Fazer as linhas principais
-    for i in range(1,3):
+    def DrawCross(x, y):
         pen.penup()
-        pen.goto(0,i*lenght/3)
+        pen.goto(x+20, y + 180)
         pen.pendown()
-        pen.forward(lenght)
+        pen.goto(x+180, y + 20)
+        pen.penup()
+        pen.goto(x + 20, y + 20)
+        pen.pendown()
+        pen.goto(x + 180, y + 180)
 
-    turtle._Screen._onscreenclick(BtnClick, 1)
-    turtle._Screen._listen()
+    def DrawCircle(x, y):
+        pen.penup()
+        pen.goto(x + 180, y + 100)
+        pen.pendown()
+        pen.circle(80)
 
+    def Player(x, y):
+        global player
+
+        if player % 2 == 0 and player < 9:
+            DrawCross(x, y)
+        elif player % 2 == 1 and player < 9:
+            DrawCircle(x, y)
+        # else:
+
+    def OnClickListener(x, y):
+        global player
+
+        # Posição do Click
+        if x > 0 and x < 200:
+            if y > 0 and y < 200:
+                Player(0, 0)
+            elif y > 200 and y < 400:
+                Player(0, 200)
+            elif y > 400:
+                Player(0, 400)
+        elif x > 200 and x < 400:
+            if y > 0 and y < 200:
+                Player(200, 0)
+            elif y > 200 and y < 400:
+                Player(200, 200)
+            elif y > 400:
+                Player(200, 400)
+        elif x > 400:
+            if y > 0 and y < 200:
+                Player(400, 0)
+            elif y > 200 and y < 400:
+                Player(400, 200)
+            elif y > 400:
+                Player(400, 400)
+        player += 1
+        #winCondition = WinCondition(spaces)
+
+    turtle.bgcolor('black')
+    turtle.screensize(600, 600)
+    turtle.setworldcoordinates(0, 0, 600, 600)
+    pen = turtle.Turtle()
+    pen.hideturtle()
+    pen.speed(10)
+    pen.width(3)
+    pen.color('white')
+    pen.penup()
+
+    # Linhas Horizontais
+    for i in range(1, 3):
+        pen.penup()
+        pen.goto(0, i*200)
+        pen.pendown()
+        pen.forward(600)
+
+    # Linhas Verticais
+    pen.left(90)
+    for i in range(1, 3):
+        pen.penup()
+        pen.goto(i*200, 0)
+        pen.pendown()
+        pen.forward(600)
+
+    pen.pencolor('#00FF00')
+    turtle.onscreenclick(OnClickListener, 1)
+    turtle.listen()
     turtle.done()
-
 
 
 CrossGame()
