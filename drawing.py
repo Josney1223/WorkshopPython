@@ -1,101 +1,100 @@
-import turtle
+import turtle 
 import time
 
-window = turtle.Screen()
-turtle = turtle.Turtle()
-turtle.speed(1)
-turtle.color("red")
-turtle.fillcolor("blue")
+pen = turtle.Turtle()
+pen.speed(1)
+pen.color("red")
+pen.fillcolor("blue")
 
 # Quadrado
 def Square():
-    turtle.begin_fill()
+    pen.begin_fill()
     for i in range(4):
-        turtle.forward(50)
-        turtle.left(90)
-    turtle.end_fill()
+        pen.forward(50)
+        pen.left(90)
+    pen.end_fill()
     x = 5
 
 # Circle
 def Circle():
-    turtle.begin_fill()
-    turtle.circle(100)
-    turtle.end_fill()
+    pen.begin_fill()
+    pen.circle(100)
+    pen.end_fill()
 
 # Hexágono
 def Hex():
-    turtle.begin_fill()
+    pen.begin_fill()
     for i in range(6):
-        turtle.forward(50)
-        turtle.left(60)
-    turtle.end_fill()
+        pen.forward(50)
+        pen.left(60)
+    pen.end_fill()
 
 # Octógono
 def Octo():
-    turtle.begin_fill()
+    pen.begin_fill()
     for i in range(8):
-        turtle.forward(50)
-        turtle.left(45)
-    turtle.end_fill()
+        pen.forward(50)
+        pen.left(45)
+    pen.end_fill()
 
 # Estrela
 def Star():
-    turtle.begin_fill()
+    pen.begin_fill()
     for i in range(3):
-        turtle.forward(50)
-        turtle.left(120)
-    turtle.penup()
-    turtle.left(90)
-    turtle.forward(30)
-    turtle.right(150)
-    turtle.pendown()
+        pen.forward(50)
+        pen.left(120)
+    pen.penup()
+    pen.left(90)
+    pen.forward(30)
+    pen.right(150)
+    pen.pendown()
     for i in range(3):
-        turtle.forward(50)
-        turtle.left(120)
-    turtle.end_fill()
+        pen.forward(50)
+        pen.left(120)
+    pen.end_fill()
 
 # Estrela Pontuda
 def EdgeStar():
-    turtle.speed(1)
+    pen.speed(1)
     for i in range(11):
         xFrom = 0
         yFrom = (10-i) * 20
         xTo = i * 20
         yTo = 0
-        turtle.penup()
-        turtle.goto(xFrom, yFrom)
-        turtle.pendown()
-        turtle.goto(xTo, yTo)
+        pen.penup()
+        pen.goto(xFrom, yFrom)
+        pen.pendown()
+        pen.goto(xTo, yTo)
 
     for i in range(11):
         xFrom = (10-i) * 20
         yFrom = 0
         xTo = 0
         yTo = - (i * 20)
-        turtle.penup()
-        turtle.goto(xFrom, yFrom)
-        turtle.pendown()
-        turtle.goto(xTo,yTo)
+        pen.penup()
+        pen.goto(xFrom, yFrom)
+        pen.pendown()
+        pen.goto(xTo,yTo)
 
     for i in range(11):
         xFrom = 0
         yFrom = - (10-i) * 20
         xTo = - (i * 20)
         yTo = 0
-        turtle.penup()
-        turtle.goto(xFrom, yFrom)
-        turtle.pendown()
-        turtle.goto(xTo,yTo)
+        pen.penup()
+        pen.goto(xFrom, yFrom)
+        pen.pendown()
+        pen.goto(xTo,yTo)
 
     for i in range(11):
         xFrom = - (10-i) * 20
         yFrom = 0
         xTo = 0
         yTo = (i * 20)
-        turtle.penup()
-        turtle.goto(xFrom, yFrom)
-        turtle.pendown()
-        turtle.goto(xTo,yTo)
+        pen.penup()
+        pen.goto(xFrom, yFrom)
+        pen.pendown()
+        pen.goto(xTo,yTo)
 
 # Batimento Cardíaco
 def HeartBeat(lenght):
@@ -104,103 +103,118 @@ def HeartBeat(lenght):
     yMaxUp = lenght/4
     yMaxDown = -lenght/4
 
-    turtle.speed(1)
-    turtle.pendown()
-    turtle.goto(lenght*9/24, 0)
+    pen.speed(1)
+    pen.pendown()
+    pen.goto(lenght*9/24, 0)
 
-    turtle.speed(3)
-    turtle.goto(lenght*11/24, yMaxUp)
-    turtle.goto(lenght*13/24, yMaxDown)
-    turtle.goto(lenght*15/24, 0)
+    pen.speed(3)
+    pen.goto(lenght*11/24, yMaxUp)
+    pen.goto(lenght*13/24, yMaxDown)
+    pen.goto(lenght*15/24, 0)
 
-    turtle.speed(1)
-    turtle.goto(lenght, 0)
-    turtle.penup()
+    pen.speed(1)
+    pen.goto(lenght, 0)
+    pen.penup()
 
-    turtle.speed(10)
-    turtle.goto(xStart, yStart)
-    turtle.clear()
+    pen.speed(10)
+    pen.goto(xStart, yStart)
+    pen.clear()
 
 # Desenhar Relógio
 def Clock(hora, minutos, radius):
-    turtle.speed(10)
+    pen.speed(10)
     xStart = 0
     yStart = 0
-    turtle.penup()
+    pen.penup()
     
     # Circulo
-    turtle.right(90)
-    turtle.forward(radius + radius/10)
-    turtle.pendown()
-    turtle.left(90)
-    turtle.circle(radius + radius/10)
-    turtle.penup()
-    turtle.goto(xStart, yStart)
+    pen.right(90)
+    pen.forward(radius + radius/10)
+    pen.pendown()
+    pen.left(90)
+    pen.circle(radius + radius/10)
+    pen.penup()
+    pen.goto(xStart, yStart)
 
     # Pontos das horas
     for i in range(12):
-        turtle.forward(radius)
-        turtle.pendown()
-        turtle.forward(radius/15)
-        turtle.stamp()
-        turtle.penup()
-        turtle.goto(xStart, yStart)
-        turtle.left(30)
+        pen.forward(radius)
+        pen.pendown()
+        pen.forward(radius/15)
+        pen.stamp()
+        pen.penup()
+        pen.goto(xStart, yStart)
+        pen.left(30)
     
     # Desenhar as horas
-    turtle.left(90)
-    turtle.right(30*hora)
-    turtle.pendown()
-    turtle.forward(radius/2)
-    turtle.stamp()
-    turtle.penup()
-    turtle.goto(xStart, yStart)
-    turtle.left(30*hora)
-    turtle.right(minutos*6)
-    turtle.pendown()
-    turtle.forward(radius*3/4)
-    turtle.penup()
-    turtle.goto(xStart, yStart)
+    pen.left(90)
+    pen.right(30*hora)
+    pen.pendown()
+    pen.forward(radius/2)
+    pen.stamp()
+    pen.penup()
+    pen.goto(xStart, yStart)
+    pen.left(30*hora)
+    pen.right(minutos*6)
+    pen.pendown()
+    pen.forward(radius*3/4)
+    pen.penup()
+    pen.goto(xStart, yStart)
 
 # Cinema
 def MovieTheater(lenght):
     # Desenhar Cadeira
     def DrawChair():
-        turtle.color("green")
-        turtle.begin_fill()
+        pen.color("green")
+        pen.begin_fill()
         for i in range(4):
-            turtle.pendown()
-            turtle.forward(lenght/20)
-            turtle.left(90)
-        turtle.end_fill()
+            pen.pendown()
+            pen.forward(lenght/20)
+            pen.left(90)
+        pen.end_fill()
 
-    # Calcular Cadeiras
-    #window.screensize(lenght+(lenght/12), lenght+(lenght/12))
-
-    # Desenhar Plano
-    turtle.goto(0, 100)
-    turtle.goto(0,0)
-    turtle.goto(100, 0)
-    turtle.goto(0,0)
 
     # Criar Array Cadeiras
     room = []
     for i in range(12):
         room.append([i])
-        window.update()
         for j in range(19):
             room[i].append([lenght*j/19])
     
     # Desenhar as cadeiras
     for i in range(12):
-        turtle.speed(100)
-        turtle.penup()
-        turtle.goto(- lenght, i*lenght/12)
-        turtle.pendown()
+        pen.speed(100)
+        pen.penup()
+        pen.goto(- lenght, i*lenght/12)
+        pen.pendown()
         for j in range(19):
-            turtle.penup()
-            turtle.forward(lenght/19+10)
-            turtle.pendown()
+            pen.penup()
+            pen.forward(lenght/19+10)
+            pen.pendown()
             DrawChair()
 
-MovieTheater(200)
+# Jogo da Velha
+def CrossGame():
+
+    def BtnClick(x, y):
+        print(x,y)
+
+    turtle.bgcolor = ('black')
+    turtle._Screen.screensize(600,600)
+    lenght = 600
+
+    # Fazer as linhas principais
+    for i in range(1,3):
+        pen.penup()
+        pen.goto(0,i*lenght/3)
+        pen.pendown()
+        pen.forward(lenght)
+
+    turtle._Screen._onscreenclick(BtnClick, 1)
+    turtle._Screen._listen()
+
+    turtle.done()
+
+
+
+CrossGame()
