@@ -119,13 +119,14 @@ def FibonacciClock(hora, minutos):
                 A5C = 'green'
                 
         pen.speed(10)
+        pen.hideturtle()
         
         ## Color Grid
         Rect(0, 0, 400, 500, A1C)   
         Rect(400, 250, 400, 250, A2C)
         Rect(400, 0, 200, 250, A3C)
-        Rect(600, 112, 200, 113, A4C)
-        Rect(600, 0, 200, 113, A5C)
+        Rect(600, 125, 200, 125, A4C)
+        Rect(600, 0, 200, 125, A5C)
 
         ## Make Grid
         pen.width(50)
@@ -145,9 +146,11 @@ def FibonacciClock(hora, minutos):
         pen.goto(800,250)
         pen.goto(600,250)
         pen.goto(600,0)
-        pen.goto(600,113)
-        pen.goto(800,113)
+        pen.goto(600,125)
+        pen.goto(800,125)
         
+        turtle.listen()
+        turtle.done()
         
         for i in range (5):
             for y in range(60):
@@ -160,4 +163,4 @@ def FibonacciClock(hora, minutos):
         hora = RealH
         minutos = RealM
 
-FibonacciClock(10, 35)
+FibonacciClock(10, 10)
