@@ -100,14 +100,10 @@ def Mdc():
 # Operações com números primos
 def Prime():
     def Primo(x):
-        y = 1
         divisores = 0
-        while(y <= x):
+        for y in range(1, x+1):
             if (x % y == 0):
                 divisores += 1
-                y += 1
-            else:
-                y += 1
         if (divisores == 2):
             return True
         else:
