@@ -64,4 +64,3 @@ def Size(lenght, high):
     turtle.done()
     
 Size(9,9)
-
