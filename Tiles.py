@@ -35,20 +35,6 @@ def Size(lenght, high):
                 pen.left(90) 
             return SmallerSquare(x,y,d-1) 
     
-    # def Diamond(x, y, d):
-    #     pen.penup()
-    #     pen.goto(x+25, y + 5*d)
-    #     pen.pendown()
-    #     if d == 0:
-    #         return 0
-    #     else:
-    #         pen.left(45)
-    #         for i in range(4):
-    #             p
-    #             pen.left(90)
-    #         pen.right(45)
-    #         return Diamond(x,y,d-1)
-        
     def DrawTileA(x, y):
         pen.goto(x,y)
         BaseSquare()
@@ -78,12 +64,6 @@ def Size(lenght, high):
         BaseSquare()
         SmallerSquare(x, y, 4)
         pen.penup()
-         
-    
-    # def DrawTileD(x, y):
-    #     pen.goto(x,y)
-    #     BaseSquare()
-    #     Diamond(x, y, 4)
             
     i = 1
     for y in range(high):
