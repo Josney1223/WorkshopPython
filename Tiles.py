@@ -4,7 +4,7 @@ import math
 pen = turtle.Turtle()
 
 def Size(lenght, high, k):
-    pen.speed(1000)
+    pen.speed(100)
     pen.penup()
 
     ## Checks e Polígonos regulares
@@ -29,11 +29,12 @@ def Size(lenght, high, k):
     # Desenhar Hexágono
     def BaseHex():
         pen.pendown()
+        pen.left(90)
         for i in range(6):
-            pen.left(60)
             pen.forward(50)
+            pen.right(60)
+        pen.right(90)
         pen.pendown()
-        pen.backward(25)
     
     # Desenhar quadrados pequenos dentro do quadrado   
     def SmallerSquare(x, y, d):
@@ -83,21 +84,27 @@ def Size(lenght, high, k):
         pen.penup()
 
     # Hexágono
-    def DrawTileD(x, y):
+    def DrawTileD(x, y, high):
         pen.penup()
-        pen.goto(x+25, y)
+        if high % 2 == 0:
+            pen.goto(43+x, y)
+        else:
+            pen.goto(x, y)
         BaseHex()
         
     ## Definições    
     i = 1
+    # Cálculo D
+    # se Hexágono d = 87
+    # se quadrado d = 50
     # Definido por Primos k = 1
     if k == 1:
         for y in range(high):
             for x in range(lenght):
                 if Prime(i):
-                    DrawTileD(50*x,50*y)
+                    DrawTileD(87*x,76*y, y+1)
                 else:
-                    DrawTileD(50*x,50*y)
+                    DrawTileD(87*x,76*y, y+1)
                 i += 1
                 
     # Definido por Pares k = 2
