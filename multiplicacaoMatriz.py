@@ -11,7 +11,8 @@ for high in range(len(matrizMxN)):
     matrizF.append([])
     for lenght in range(len(matrizAxB[0])):
         matrizF[high].append(0)
- 
+
+# Multiplicação de matrizes 
 for m in range(len(matrizF)):
     for n in range(len(matrizF[0])):
         for i in range(len(matrizMxN[0])):
