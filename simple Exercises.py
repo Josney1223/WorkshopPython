@@ -79,8 +79,8 @@ def Media():
     A1 = int(input('Digite a nota da primeira atividade: '))
     P2 = int(input('Digite a nota da segunda prova: '))
     A2 = int(input('Digite a nota da segunda atividade: '))
-    N1 = (P1 + A1*3) / 4
-    N2 = (P2 + A2*3) / 4
+    N1 = (P1*2 + A1) / 3
+    N2 = (P2*2 + A2) / 3
     NF = (N1 + N2) / 2
     print("A média final dessa pessoa é:", NF)
 
